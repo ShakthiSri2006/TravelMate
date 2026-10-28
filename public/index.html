@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#24372b">
+    <title>TravelMate — Find Your Travel People</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <a class="brand" href="#home">travel<span>mate.</span></a>
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#destinations">Explore</a>
+        <a href="#planner">Plan a trip</a>
+    </nav>
+    <div class="nav-actions">
+        <button id="loginOpen" class="text-button">Log in</button>
+        <button id="signupOpen" class="small-cta">Join TravelMate ↗</button>
+        <button id="logoutButton" class="text-button hidden">Log out</button>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+            <span class="eyebrow light">TRAVEL MORE. CONNECT DEEPER.</span>
+            <h1>Find your people.<br>Discover your <em>world.</em></h1>
+            <p>Meet travellers with plans like yours. Share the road, discover hidden places, and turn a destination into a shared adventure.</p>
+            <div class="hero-buttons">
+                <a class="button gold-button" href="#planner">Find my travel people <span>↗</span></a>
+                <a class="hero-link" href="#destinations">Explore destinations ↓</a>
+            </div>
+            <div class="hero-caption"><span class="live-dot"></span> YOUR NEXT ADVENTURE STARTS HERE</div>
+        </div>
+        <div class="hero-stamp"><span>GO</span><span>BEYOND</span><span>TOGETHER.</span></div>
+    </section>
+
+    <section class="welcome-strip">
+        <div>
+            <p class="eyebrow">YOUR TRAVEL COMMUNITY</p>
+            <h2 id="welcomeTitle">A world of journeys, waiting to connect.</h2>
+        </div>
+        <p id="welcomeText">Create your travel plan and discover people heading in the same direction.</p>
+    </section>
+
+    <section class="section destinations-section" id="destinations">
+        <div class="section-head">
+            <div>
+                <p class="eyebrow">PICK YOUR NEXT ESCAPE</p>
+                <h2>Where will the road take you?</h2>
+            </div>
+            <p>From misty mountains to quiet coastlines,<br>your next story starts somewhere.</p>
+        </div>
+        <div class="destination-grid">
+            <button class="destination-card" data-destination="Ooty">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9jkdDQnVAzp-8GMXBP35tregbO9fc7g4aqUP8FPDzng&s=10" alt="Mountain lake and forest" loading="lazy">
+                <span class="destination-overlay"></span>
+                <span class="destination-label"><small>THE NILGIRIS</small><strong>Ooty</strong><span>Explore destination ↗</span></span>
+            </button>
+            <button class="destination-card" data-destination="Munnar">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR03RDU-P152WNsKWOvGMdrSZ5ctdjS2inkAT2kYIG1GRl7pa1t72KcYjA&s=10" alt="Green tea hills in Kerala" loading="lazy">
+                <span class="destination-overlay"></span>
+                <span class="destination-label"><small>LAND OF TEA GARDENS</small><strong>Munnar</strong><span>Explore destination ↗</span></span>
+            </button>
+            <button class="destination-card" data-destination="Kodaikanal">
+                <img src="https://media.istockphoto.com/id/901134626/photo/sun-shining-in-a-forest.jpg?s=612x612&w=0&k=20&c=Z1GPER9EE6BQK_efVKaSO7WODScQYOMPX3TFFPCZt88=" alt="Sunlight filtering through a forest" loading="lazy">
+                <span class="destination-overlay"></span>
+                <span class="destination-label"><small>THE PRINCESS OF HILLS</small><strong>Kodaikanal</strong><span>Explore destination ↗</span></span>
+            </button>
+        </div>
+    </section>
+
+    <section class="planner-section" id="planner">
+        <div class="planner-intro">
+            <p class="eyebrow light">MAKE IT A SHARED ADVENTURE</p>
+            <h2>Your trip.<br>Your people.<br><em>Your story.</em></h2>
+            <p>Tell us where you want to go. We'll help you find travellers whose plans overlap with yours.</p>
+            <div class="planner-benefit"><span>01</span><div><strong>Find your match</strong><small>Compare destination, dates and interests.</small></div></div>
+            <div class="planner-benefit"><span>02</span><div><strong>Connect at your pace</strong><small>Send requests and accept connections.</small></div></div>
+        </div>
+
+        <div class="planner-panel">
+            <div class="panel-heading">
+                <span class="panel-icon">✳</span>
+                <div><p class="eyebrow">TRIP BUILDER</p><h3>Create your travel plan</h3></div>
+            </div>
+            <form id="planForm">
+  <label for="destination">Where are you headed?</label>
+  <input id="destination" name="destination" placeholder="e.g. Ooty, India" maxlength="100" required>
+
+  <div class="two-column">
+    <div>
+      <label for="startDate">Departure date</label>
+      <input id="startDate" name="startDate" type="date" required>
+    </div>
+    <div>
+      <label for="endDate">Return date</label>
+      <input id="endDate" name="endDate" type="date" required>
+    </div>
+  </div>
+
+  <label for="budgetRange">Total budget per person</label>
+  <select id="budgetRange" name="budgetRange" required>
+    <option value="0-3000">Under ₹3,000</option>
+    <option value="3000-5000">₹3,000–₹5,000</option>
+    <option value="5000-10000" selected>₹5,000–₹10,000</option>
+    <option value="10000-20000">₹10,000–₹20,000</option>
+    <option value="20000-50000">₹20,000–₹50,000</option>
+    <option value="50000-100000">₹50,000+</option>
+  </select>
+
+  <label for="travelStyle">Travel style</label>
+  <select id="travelStyle" name="travelStyle" required>
+    <option value="Budget">Budget-friendly</option>
+    <option value="Balanced" selected>Balanced</option>
+    <option value="Comfort">Comfort and premium</option>
+    <option value="Adventure">Adventure-focused</option>
+  </select>
+
+  <label for="transport">Preferred transport</label>
+  <select id="transport" name="transport" required>
+    <option value="Train / Bus" selected>Train / Bus</option>
+    <option value="Car / Bike">Car / Bike</option>
+    <option value="Flight">Flight</option>
+    <option value="Flexible">Flexible</option>
+  </select>
+
+  <label for="accommodation">Accommodation preference</label>
+  <select id="accommodation" name="accommodation" required>
+    <option value="Hostel">Hostel</option>
+    <option value="Shared accommodation" selected>Shared accommodation</option>
+    <option value="Hotel">Hotel</option>
+    <option value="Resort">Resort</option>
+    <option value="Flexible">Flexible</option>
+  </select>
+
+  <label for="pace">Preferred travel pace</label>
+  <select id="pace" name="pace" required>
+    <option value="Relaxed">Relaxed and slow</option>
+    <option value="Balanced" selected>Balanced</option>
+    <option value="Packed">Packed itinerary</option>
+  </select>
+
+  <label for="wakeTime">Your ideal start</label>
+  <select id="wakeTime" name="wakeTime" required>
+    <option value="Flexible">Flexible</option>
+    <option value="Early bird">Early bird</option>
+    <option value="Night owl">Night owl</option>
+  </select>
+
+  <label for="groupSize">Ideal travel group size</label>
+  <select id="groupSize" name="groupSize" required>
+    <option value="2">2 people</option>
+    <option value="3">3 people</option>
+    <option value="4" selected>4 people</option>
+    <option value="5">5 people</option>
+    <option value="6">6 or more</option>
+    <option value="Flexible">No preference</option>
+  </select>
+
+  <fieldset class="interest-field">
+    <legend>What do you enjoy? Choose all that apply.</legend>
+    <div class="interest-options">
+      <label><input type="checkbox" name="interests" value="Nature & trekking" checked><span>Nature &amp; trekking</span></label>
+      <label><input type="checkbox" name="interests" value="Photography" checked><span>Photography</span></label>
+      <label><input type="checkbox" name="interests" value="Food exploration"><span>Food exploration</span></label>
+      <label><input type="checkbox" name="interests" value="Adventure sports"><span>Adventure sports</span></label>
+      <label><input type="checkbox" name="interests" value="Sightseeing"><span>Sightseeing</span></label>
+      <label><input type="checkbox" name="interests" value="Shopping"><span>Shopping</span></label>
+      <label><input type="checkbox" name="interests" value="Relaxation"><span>Relaxation</span></label>
+      <label><input type="checkbox" name="interests" value="Culture & heritage"><span>Culture &amp; heritage</span></label>
+    </div>
+  </fieldset>
+
+  <label for="tripNotes">Additional preferences (optional)</label>
+  <textarea id="tripNotes" name="tripNotes" rows="3" maxlength="500" placeholder="Tell your potential travel buddies a little more about your trip."></textarea>
+
+  <button class="btn btn-dark btn-full" type="submit">Save my travel plan <span>↗</span></button>
+  <p class="form-hint">Log in first to save a plan and discover compatible travellers.</p>
+</form>
+        </div>
+    </section>
+
+    
+<section class="section dashboard-section" id="myDashboard">
+  
+
+    <div class="dashboard-hero">
+        <div class="dashboard-hero-content">
+            <p class="eyebrow">YOUR TRAVEL SPACE</p>
+            <h2>Your next adventure starts here.</h2>
+            <p>Discover new destinations, meet fellow travellers, and make every journey memorable.</p>
+        </div>
+    </div>
+
+    <div class="section-head">
+        <div>
+            <p class="eyebrow">YOUR TRAVEL SPACE</p>
+            <h2>Your dashboard.</h2>
+        </div>
+        <button id="refreshButton" class="outline-button">Refresh ↻</button>
+    </div>
+
+    <div class="dashboard-tabs">
+        <button class="tab active" data-tab="myPlans">My plans <span id="myPlanCount">0</span></button>
+        <button class="tab" data-tab="matches">Travel matches <span id="matchCount">0</span></button>
+        <button class="tab" data-tab="requests">Requests <span id="requestCount">0</span></button>
+    </div>
+
+    <div id="myPlans" class="dashboard-panel">
+        <div id="plansList" class="result-grid">
+            <div class="empty-state">
+                <span>✳</span>
+                <h3>Your next chapter starts here.</h3>
+                <p>Create a travel plan above to begin.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="matches" class="dashboard-panel hidden">
+        <div id="matchesList" class="result-grid">
+            <div class="empty-state">
+                <span>◎</span>
+                <h3>Your travel matches will appear here.</h3>
+                <p>Create a plan, then explore people travelling to the same place around the same dates.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="requests" class="dashboard-panel hidden">
+        <div class="request-columns">
+            <div><h3>Incoming requests</h3><div id="incomingList" class="stack-list"></div></div>
+            <div><h3>Sent requests</h3><div id="outgoingList" class="stack-list"></div></div>
+            <div><h3>Connections</h3><div id="connectionsList" class="stack-list"></div></div>
+        </div>
+    </div>
+
+</section>
+
+    
+
+    <section class="closing-banner">
+        <p class="eyebrow light">THE BEST STORIES ARE SHARED</p>
+        <h2>Don't just visit a place.<br><em>Find a connection.</em></h2>
+        <a href="#planner" class="button gold-button">Plan your next adventure ↗</a>
+    </section>
+</main>
+
+
+<footer class="footer">
+    <a class="brand" href="#home">travel<span>mate.</span></a>
+    <p>Made for curious travellers and shared adventures.</p>
+    <span>© 2026 TravelMate</span>
+</footer>
+
+<div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="auth-card">
+        <button type="button" class="modal-close" id="closeModal" aria-label="Close">×</button>
+        <p class="eyebrow">WELCOME TO TRAVELMATE</p>
+        <h2 id="authTitle">Every journey starts somewhere.</h2>
+        <p class="auth-subtitle">Create your account and meet your next travel companion.</p>
+        <div class="auth-switch">
+            <button id="showLogin" class="active" type="button">Log in</button>
+            <button id="showSignup" type="button">Sign up</button>
+        </div>
+        <form id="authForm">
+            <div id="nameField" class="hidden"><label for="authName">Your name</label><input id="authName" autocomplete="name" placeholder="Enter your name"></div>
+            <label for="authEmail">Email address</label>
+            <input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <label for="authPassword">Password</label>
+            <input id="authPassword" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters" required>
+            <button id="authSubmit" class="button dark-button full-width" type="submit">Log in ↗</button>
+            <p id="authMessage" class="form-message" aria-live="polite"></p>
+        </form>
+        <p class="privacy-note">Your password is securely hashed on the server. Never reuse a sensitive password.</p>
+    </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
